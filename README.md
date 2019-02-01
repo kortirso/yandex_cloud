@@ -28,7 +28,7 @@ You can use your Oauth token directly in spesific requests or put it to the ENV 
 
 ## Using
 
-### Get IAM-token for cloud API access
+## Get IAM-token for cloud API access
 
 Request for getting IAM-token for access to cloud API. Valid 12 hours.
 
@@ -37,7 +37,7 @@ Request for getting IAM-token for access to cloud API. Valid 12 hours.
 auth_service = YandexCloud::Auth.new
 auth_service.token
 
-# or with oauth_token in request
+# or with oauth_token in service declaration
 auth_service = YandexCloud::Auth.new(oauth_token: oauth_token)
 auth_service.token
 ```
@@ -50,6 +50,42 @@ auth_service.token
 
 # response with errors
 { "code" => 16, "message" => "Token is invalid or has expired.", "details" => [...] } 
+```
+
+## Translate service
+
+### Configuration
+
+For using Translate service you need additionally get FOLDER_ID.
+
+Instruction for getting FOLDER_ID is [here](https://cloud.yandex.com/docs/translate/concepts/auth)
+
+You can use your FOLDER_ID directly in spesific requests or put it to the ENV variables.
+
+```ruby
+# with FOLDER_ID in ENV
+translator = YandexCloud::Translate.new(iam_token: iam_token)
+
+# or with FOLDER_ID in service declaration
+translator = YandexCloud::Translate.new(iam_token: iam_token, folder_id: '12345')
+```
+
+### Supported languages
+
+Request for getting list of supported languages is #languages.
+
+```ruby
+translator.languages()
+```
+
+#### Responses
+
+```ruby
+# successful response
+{ "languages" => [...] }
+
+# response with errors
+{ "error_message" => "" }
 ```
 
 ## Contributing

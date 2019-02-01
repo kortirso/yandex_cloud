@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 ### Added
+- YandexCloud::Translate.languages()
+
+### Modified
+- README
+
+## [0.2.0] - 2019-02-01
+### Added
 - CHANGELOG
 - dotenv support
 - YandexCloud::Auth with token()

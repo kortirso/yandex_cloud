@@ -39,7 +39,7 @@ Layout/AlignHash:
 Style/GuardClause:
   Enabled: false
 
-Style/FileName:
+Naming:
   Enabled: false
 
 Style/FormatStringToken:
