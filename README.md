@@ -46,10 +46,10 @@ auth_service.token
 
 ```ruby
 # successful response
-{ "iamToken" => iam_token }
+{ 'iamToken' => iam_token }
 
 # response with errors
-{ "code" => 16, "message" => "Token is invalid or has expired.", "details" => [...] } 
+{ 'code' => 16, 'message' => 'Token is invalid or has expired.', 'details' => [...] } 
 ```
 
 ## Translate service
@@ -70,6 +70,11 @@ translator = YandexCloud::Translate.new(iam_token: iam_token)
 translator = YandexCloud::Translate.new(iam_token: iam_token, folder_id: '12345')
 ```
 
+#### Options
+
+    iam_token - IAM-token, required
+    folder_id - folder ID of your account at YandexCloud, optional
+
 ### Supported languages
 
 Request for getting list of supported languages is #languages.
@@ -82,10 +87,33 @@ translator.languages()
 
 ```ruby
 # successful response
-{ "languages" => [...] }
+{ 'languages' => [...] }
 
 # response with errors
-{ "error_message" => "" }
+{ 'error_message' => '' }
+```
+
+### Detection
+
+Request for detecting language of text is #detect.
+
+```ruby
+translator.detect(text: 'Hello')
+```
+
+#### Options
+
+    text - text for detection, required
+    hint - list of possible languages, optional, example - "en,ru"
+
+#### Responses
+
+```ruby
+# successful response
+{ 'language' => 'es' }
+
+# response with errors
+{ 'error_message' => '' }
 ```
 
 ## Contributing

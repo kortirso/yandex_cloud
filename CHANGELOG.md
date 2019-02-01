@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 ### Added
-- YandexCloud::Translate.languages()
+- languages() in module YandexCloud::Translate
+- detect() in module YandexCloud::Translate
 
 ### Modified
 - README
@@ -15,8 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - CHANGELOG
 - dotenv support
-- YandexCloud::Auth with token()
-- specs for YandexCloud::Auth.token()
+- YandexCloud::Auth module with token()
+- specs for token() in module YandexCloud::Auth
 
 ### Modified
 - README
