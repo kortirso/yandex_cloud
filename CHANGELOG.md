@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - languages() in module YandexCloud::Translate
 - detect() in module YandexCloud::Translate
+- translate() in module YandexCloud::Translate
 
 ### Modified
 - README

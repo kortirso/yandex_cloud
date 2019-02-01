@@ -1,6 +1,7 @@
 require 'httparty'
 require_relative 'translate/languages'
 require_relative 'translate/detect'
+require_relative 'translate/translate'
 
 module YandexCloud
   # Authentification requests
@@ -8,6 +9,7 @@ module YandexCloud
     include HTTParty
     include YandexCloud::Translate::Languages
     include YandexCloud::Translate::Detect
+    include YandexCloud::Translate::Translate
 
     base_uri 'https://translate.api.cloud.yandex.net/translate/v1'
     format :json

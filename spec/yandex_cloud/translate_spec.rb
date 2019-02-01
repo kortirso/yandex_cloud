@@ -57,5 +57,29 @@ RSpec.describe YandexCloud::Translate do
         end
       end
     end
+
+    context '.translate' do
+      context 'for invalid request' do
+        it 'returns response with error' do
+          response = bad_translate_service.translate(text: 'Hola', target: 'en')
+
+          expect(response['error_message']).to_not eq nil
+        end
+      end
+
+      context 'for valid request' do
+        it 'returns translations, without source' do
+          response = translate_service.translate(text: 'Hola', target: 'en')
+
+          expect(response['translations'].is_a?(Array)).to eq true
+        end
+
+        it 'returns translations, with source' do
+          response = translate_service.translate(text: 'Hola', target: 'en', source: 'es')
+
+          expect(response['translations'].is_a?(Array)).to eq true
+        end
+      end
+    end
   end
 end

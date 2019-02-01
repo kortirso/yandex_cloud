@@ -104,13 +104,38 @@ translator.detect(text: 'Hello')
 #### Options
 
     text - text for detection, required
-    hint - list of possible languages, optional, example - "en,ru"
+    hint - list of possible languages, optional, example - 'en,ru'
 
 #### Responses
 
 ```ruby
 # successful response
 { 'language' => 'es' }
+
+# response with errors
+{ 'error_message' => '' }
+```
+
+### Translation
+
+Request for translating text is #translate.
+
+```ruby
+translator.translate(text: 'Hola', target: 'en')
+```
+
+#### Options
+
+    text - text for detection, required
+    source - source language, ISO 639-1 format (like 'en'), optional
+    target - target language, ISO 639-1 format (like 'ru'), required
+    format - text format, one of the [plain|html], default - plain, optional
+
+#### Responses
+
+```ruby
+# successful response
+{ 'translations' => [{ 'text' => 'Hello' }]}
 
 # response with errors
 { 'error_message' => '' }
